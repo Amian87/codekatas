@@ -13,5 +13,9 @@ describe StringCalculator do
     it 'should allow custom delimiters' do
       expect(StringCalculator.add('//;\n1;2;3')).to eq(6)
     end
+
+    it 'should return an exception if there is a negative number passed' do
+      expect { StringCalculator.add('//;\n1,-1') }.to raise_error(RuntimeError)
+    end
   end
 end
